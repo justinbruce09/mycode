@@ -45,8 +45,6 @@ def main():
     # Iterate through these questions
     for question in questions: # missing :
             
-       #keep program from crashing in case of user input issues
-       try:
            #show user the question
             print(question)
             #set user input = variable for counting
@@ -58,7 +56,7 @@ def main():
                 response+=1
             else:
                 response=+0
-       except: print("please respond with '[y]es' or '[n]o'")
+       
 
     # take the number of yes responses and categorize based on 'yes' response
     if response in list(range(0,6)): # the tweak I made on this line is this:
