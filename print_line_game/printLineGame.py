@@ -43,38 +43,42 @@ inventory = []
 rooms = {
 
             'Hall' : {
-                  'south' : 'Kitchen',
-                  'east'  : 'Dining Room',
-                  'item'  : 'key',
+                  'south'      : 'Kitchen',
+                  'east'       : 'Dining Room',
+                  'up'         : 'Attic',
+                  'item'       : 'key',
                   'description': 'a long dimly lit hallway with doors that lead [up] the Attic, [south] to the Kitchen, [east] to the Dining Room'
                 },
 
             'Kitchen' : {
-                  'north' : 'Hall',
-                  'item'  : 'monster',
+                  'north'      : 'Hall',
+                  'Basement'   : 'down',
+                  'item'       : 'monster',
                   'description': 'a large open room full of dilapidated cabinets, and a strong, stench resembling that of a rotten milk. From Kitchen you can go [down] to get to the Basement or [north] to return to the Hall',
                 },
             'Dining Room' : {
-                  'west' : 'Hall',
-                  'south': 'Garden',
-                  'item' : 'potion',
-                  'north' : 'Pantry',
+                  'west'       : 'Hall',
+                  'south'      : 'Garden',
+                  'item'       : 'potion',
+                  'north'      : 'Pantry',
                   'description': 'A once beautiful room with a grand table and ornate woodwork, covered in fine silver, now covered in cobwebs. You may go [west] to the Hall, [south] to the Garden, and [north] to the Pantry'
                },
             'Garden' : {
-                  'north' : 'Dining Room',
+                  'north'      : 'Dining Room',
                   'description': 'An overgrown garden with an odd glow coming from somewhere just out of sight. Head [north] to go to the Dining Room.'
 
                },
             'Pantry' : {
-                  'south' : 'Dining Room',
-                  'item' : 'cookie',
+                  'south'      : 'Dining Room',
+                  'item'       : 'cookie',
                   'description':"A large butler's pantry that appears to be untouched still having some food inside. From the Pantry you can head [south] to the Dining Room."
 			         },
             'Attic' : {
-                  'description': 'a hot dark space only pieces of it can be seen by sunlight peeking through holes from the attic turbines. Who knows what could exist up here.'
+                  'down'       : 'Hall',
+                  'description': 'a hot dark space only pieces of it can be seen by sunlight peeking through holes from the attic turbines. Who knows what could exist up here. From the Attic you can go [down] to the Hall'
 			         },
             'Basement' : {
+                  'up'         : 'Kitchen',
                   'description': 'a large open space that was used as a livingroom. Go [up] to return to the kitchen.'     
                }
          }
@@ -145,8 +149,8 @@ while True:
   elif 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
      #alternate ending, if you have a cookie and are in the kitchen with monster you win
       if 'cookie' in inventory and 'monster' in  rooms['Kitchen']['item']:
-      print('You gave the Monster your cookie, YOU WIN!')
-      break
-     else:
-      print('A monster has got you... GAME OVER!')
-      break
+          print('You gave the Monster your cookie, YOU WIN!')
+          break
+      else:
+         print('A monster has got you... GAME OVER!')
+         break
